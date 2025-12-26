@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Будущее Платных Приложений: Отчет 2026-2030</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles & Palette -->
+    <!-- 
+        Palette: "Neon Night" (Vibrant & Futuristic)
+        Background: Slate 900 (#0f172a)
+        Cards: Slate 800 (#1e293b) with Slate 700 borders
+        Text: Slate 50 (#f8fafc)
+        Primary Accent: Cyan 400 (#22d3ee) - Future/Tech
+        Secondary Accent: Fuchsia 500 (#d946ef) - Human/Creative
+        Tertiary Accent: Amber 400 (#fbbf24) - Value/Gold
+    -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #f8fafc; /* Slate 50 */
+        }
+        h1, h2, h3 {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            height: 350px;
+            max-height: 400px;
+            margin: 0 auto;
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #22d3ee;
+        }
+        .neon-text {
+            text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            border-color: #22d3ee;
+        }
+    </style>
+    <!-- 
+        NARRATIVE PLAN SUMMARY:
+        1. Intro: The shift from "Time Killing" apps to "Time Saving" apps.
+        2. Year 1 (2026): The Consolidation. AI "Super-Assistants" replace niche tools.
+        3. Year 3 (2028): The Agent Economy. Apps that do the work for you.
+        4. Year 5 (2030): Biological Integration. Health as the ultimate subscription.
+        5. Conclusion: Summary of the "value per pixel" metric.
+    -->
+</head>
+<body class="antialiased selection:bg-cyan-500 selection:text-white">
+
+    <!-- Header Section -->
+    <header class="w-full bg-slate-900 border-b border-slate-700 sticky top-0 z-50 bg-opacity-90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-cyan-400 rounded-full animate-pulse"></div>
+                <h1 class="text-xl font-bold tracking-tighter text-white">FUTURE<span class="text-cyan-400">RESEARCH</span></h1>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
+                <a href="#intro" class="hover:text-cyan-400 transition-colors">Введение</a>
+                <a href="#year1" class="hover:text-cyan-400 transition-colors">2026: Ассистент</a>
+                <a href="#year3" class="hover:text-fuchsia-400 transition-colors">2028: Агенты</a>
+                <a href="#year5" class="hover:text-amber-400 transition-colors">2030: Симбиоз</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+
+        <!-- Intro / Hook -->
+        <section id="intro" class="text-center space-y-8">
+            <h2 class="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-amber-400 pb-2 neon-text">
+                Следующий "Единорог"
+            </h2>
+            <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                Какое приложение заставит 1 миллион человек платить ежемесячно?
+                <br>
+                Ответ кроется не в развлечениях, а в <span class="text-white font-bold border-b-2 border-cyan-400">возврате времени</span>.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                <!-- KPI Card 1 -->
+                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 card-hover transition-all duration-300">
+                    <div class="text-4xl font-bold text-cyan-400 mb-2">2026</div>
+                    <div class="text-sm text-slate-400 uppercase tracking-widest font-bold">Гипер-Ассистент</div>
+                    <p class="mt-4 text-slate-300 text-sm">Консолидация календаря, почты и задач в один "LifeOS".</p>
+                </div>
+                <!-- KPI Card 2 -->
+                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 card-hover transition-all duration-300">
+                    <div class="text-4xl font-bold text-fuchsia-500 mb-2">2028</div>
+                    <div class="text-sm text-slate-400 uppercase tracking-widest font-bold">Автономный Агент</div>
+                    <p class="mt-4 text-slate-300 text-sm">Приложения, которые <i>работают</i> за вас, а не просто помогают.</p>
+                </div>
+                <!-- KPI Card 3 -->
+                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 card-hover transition-all duration-300">
+                    <div class="text-4xl font-bold text-amber-400 mb-2">2030</div>
+                    <div class="text-sm text-slate-400 uppercase tracking-widest font-bold">Био-Двойник</div>
+                    <p class="mt-4 text-slate-300 text-sm">Полная интеграция здоровья и предиктивной медицины.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- YEAR 1: 2026 -->
+        <section id="year1" class="space-y-8">
+            <div class="border-l-4 border-cyan-400 pl-6">
+                <h3 class="text-3xl font-bold text-white">Через 1 год (2026): "LifeOS"</h3>
+                <p class="text-cyan-400 font-mono mt-2">Конец фрагментации приложений</p>
+            </div>
+            
+            <p class="text-slate-300 text-lg leading-relaxed max-w-4xl">
+                В 2026 году пользователи устанут от переключения между Notion, Gmail, Google Calendar и Slack. Приложением-победителем станет <strong>"Агрегатор Контекста"</strong>. Это ИИ-оболочка, которая объединяет все ваши данные. Люди будут платить за <em>отсутствие шума</em>.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Visualization 1: Radar Chart for Features -->
+                <div class="bg-slate-800 rounded-xl shadow-lg border border-slate-700 p-6 flex flex-col">
+                    <div class="mb-4">
+                        <h4 class="text-xl font-bold text-white">Факторы готовности платить (Willingness to Pay)</h4>
+                        <p class="text-sm text-slate-400">Сравнение текущих приложений и "LifeOS" 2026</p>
+                    </div>
+                    <div class="chart-container flex-grow">
+                        <canvas id="radarChart2026"></canvas>
+                    </div>
+                    <div class="mt-4 text-xs text-slate-500 bg-slate-900 p-3 rounded">
+                        <strong>Инсайт:</strong> Приватность и "Экономия времени" становятся главными драйверами подписки, обгоняя развлекательный контент.
+                    </div>
+                </div>
+
+                <!-- Visualization 2: Bar Chart for Categories -->
+                <div class="bg-slate-800 rounded-xl shadow-lg border border-slate-700 p-6 flex flex-col">
+                    <div class="mb-4">
+                        <h4 class="text-xl font-bold text-white">Прогноз роста платных подписчиков (MAU)</h4>
+                        <p class="text-sm text-slate-400">По категориям приложений (млн чел.)</p>
+                    </div>
+                    <div class="chart-container flex-grow">
+                        <canvas id="barChart2026"></canvas>
+                    </div>
+                    <div class="mt-4 text-xs text-slate-500 bg-slate-900 p-3 rounded">
+                        <strong>Тренд:</strong> Категория "Персональная продуктивность" показывает самый бурный рост (+45% YoY).
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- YEAR 3: 2028 -->
+        <section id="year3" class="space-y-8">
+            <div class="border-l-4 border-fuchsia-500 pl-6">
+                <h3 class="text-3xl font-bold text-white">Через 3 года (2028): Эпоха Автономных Агентов</h3>
+                <p class="text-fuchsia-400 font-mono mt-2">От "Chat" к "Action"</p>
+            </div>
+
+            <p class="text-slate-300 text-lg leading-relaxed max-w-4xl">
+                ИИ переходит от генерации текста (LLM) к выполнению действий (LAM - Large Action Models). Приложение за $50/мес, которое само бронирует билеты, пишет код, сводит бухгалтерию и ведет переговоры о встречах, станет нормой. Платная подписка здесь — это зарплата сотрудника, а не покупка софта.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Visualization 3: Line Chart Efficiency -->
+                <div class="bg-slate-800 rounded-xl shadow-lg border border-slate-700 p-6 lg:col-span-2 flex flex-col">
+                    <div class="mb-4">
+                        <h4 class="text-xl font-bold text-white">ROI Агента: Стоимость подписки vs Ценность</h4>
+                        <p class="text-sm text-slate-400">Экономическая выгода для фрилансера (USD/мес)</p>
+                    </div>
+                    <div class="chart-container flex-grow">
+                        <canvas id="lineChart2028"></canvas>
+                    </div>
+                </div>
+
+                <!-- Visualization 4: Donut Chart User Composition -->
+                <div class="bg-slate-800 rounded-xl shadow-lg border border-slate-700 p-6 flex flex-col">
+                    <div class="mb-4">
+                        <h4 class="text-xl font-bold text-white">Сегментация пользователей</h4>
+                        <p class="text-sm text-slate-400">Кто платит за агентов?</p>
+                    </div>
+                    <div class="chart-container flex-grow relative">
+                        <canvas id="donutChart2028"></canvas>
+                        <!-- Center Text Overlay -->
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <span class="text-2xl font-bold text-fuchsia-500 opacity-20">2028</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Process Flow Diagram (NO MERMAID / NO SVG) -->
+            <div class="bg-slate-800 rounded-xl border border-slate-700 p-8 mt-8">
+                <h4 class="text-xl font-bold text-white mb-6">Рабочий цикл "Агента" (The Loop)</h4>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-center items-center">
+                    
+                    <!-- Step 1 -->
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 rounded-full bg-slate-900 border-2 border-fuchsia-500 flex items-center justify-center text-2xl mb-3 shadow-[0_0_15px_rgba(217,70,239,0.3)]">
+                            🧠
+                        </div>
+                        <h5 class="font-bold text-white">Намерение</h5>
+                        <p class="text-xs text-slate-400 mt-1">"Спланируй отпуск"</p>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="hidden md:block text-slate-600 text-3xl font-bold">→</div>
+                    <div class="md:hidden text-slate-600 text-3xl font-bold transform rotate-90 my-2">→</div>
+
+                    <!-- Step 2 -->
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 rounded-full bg-slate-900 border-2 border-fuchsia-500 flex items-center justify-center text-2xl mb-3 shadow-[0_0_15px_rgba(217,70,239,0.3)]">
+                            🔎
+                        </div>
+                        <h5 class="font-bold text-white">Анализ & Поиск</h5>
+                        <p class="text-xs text-slate-400 mt-1">Парсинг билетов/отелей</p>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="hidden md:block text-slate-600 text-3xl font-bold">→</div>
+                    <div class="md:hidden text-slate-600 text-3xl font-bold transform rotate-90 my-2">→</div>
+
+                    <!-- Step 3 -->
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 rounded-full bg-slate-900 border-2 border-fuchsia-500 flex items-center justify-center text-2xl mb-3 shadow-[0_0_15px_rgba(217,70,239,0.3)]">
+                            💳
+                        </div>
+                        <h5 class="font-bold text-white">Исполнение</h5>
+                        <p class="text-xs text-slate-400 mt-1">Бронь и оплата</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- YEAR 5: 2030 -->
+        <section id="year5" class="space-y-8">
+            <div class="border-l-4 border-amber-400 pl-6">
+                <h3 class="text-3xl font-bold text-white">Через 5 лет (2030): Цифровой Двойник Здоровья</h3>
+                <p class="text-amber-400 font-mono mt-2">Биология как сервис</p>
+            </div>
+
+            <p class="text-slate-300 text-lg leading-relaxed max-w-4xl">
+                К 2030 году носимые устройства станут незаметными. "Убийственное приложение" (Killer App) будет в реальном времени мониторить биомаркеры и предсказывать болезни. Люди будут платить за <strong>долголетие</strong>. Интерфейс исчезает: управление происходит голосом или взглядом.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Visualization 5: Plotly Scatter (Canvas Mode) -->
+                <div class="bg-slate-800 rounded-xl shadow-lg border border-slate-700 p-6 flex flex-col col-span-1 md:col-span-2">
+                    <div class="mb-4">
+                        <h4 class="text-xl font-bold text-white">Глубина интеграции данных vs Удержание (Retention)</h4>
+                        <p class="text-sm text-slate-400">Корреляция между доступом к био-данным и сроком жизни подписки (LTV)</p>
+                    </div>
+                    <!-- Plotly Container -->
+                    <div id="plotlyScatter" class="w-full h-[400px] bg-slate-900 rounded-lg overflow-hidden relative"></div>
+                    <div class="mt-4 text-xs text-slate-500 bg-slate-900 p-3 rounded">
+                        <strong>Анализ:</strong> Чем больше данных о здоровье пользователь доверяет системе (ось X), тем ниже вероятность отмены подписки (размер пузыря = LTV).
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features List -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+                <div class="bg-slate-900 p-4 rounded-lg border-t-2 border-amber-400">
+                    <div class="text-amber-400 font-bold mb-2">Предиктивная Диагностика</div>
+                    <p class="text-xs text-slate-400">Предупреждение о болезни за 48 часов до симптомов.</p>
+                </div>
+                <div class="bg-slate-900 p-4 rounded-lg border-t-2 border-amber-400">
+                    <div class="text-amber-400 font-bold mb-2">Нейро-оптимизация</div>
+                    <p class="text-xs text-slate-400">Подбор музыки и освещения под мозговые волны.</p>
+                </div>
+                <div class="bg-slate-900 p-4 rounded-lg border-t-2 border-amber-400">
+                    <div class="text-amber-400 font-bold mb-2">Генетическое Меню</div>
+                    <p class="text-xs text-slate-400">Заказ еды на основе анализа крови в реальном времени.</p>
+                </div>
+                <div class="bg-slate-900 p-4 rounded-lg border-t-2 border-amber-400">
+                    <div class="text-amber-400 font-bold mb-2">Цифровое Бессмертие</div>
+                    <p class="text-xs text-slate-400">Архивация памяти и паттернов мышления.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Churn Analysis Section -->
+        <section class="bg-slate-800 rounded-2xl p-8 border border-slate-700">
+            <h3 class="text-2xl font-bold text-white mb-6">Почему пользователи будут уходить? (Анализ оттока)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="chart-container h-80">
+                    <canvas id="churnChart"></canvas>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <span class="text-2xl mr-4">🔒</span>
+                        <div>
+                            <h5 class="text-white font-bold">Приватность (2026)</h5>
+                            <p class="text-sm text-slate-400">Главный риск для LifeOS. Одна утечка данных уничтожит платформу.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-2xl mr-4">🤖</span>
+                        <div>
+                            <h5 class="text-white font-bold">Ошибки "Галлюцинаций" (2028)</h5>
+                            <p class="text-sm text-slate-400">Если Агент купит не тот билет, доверие рухнет мгновенно.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-2xl mr-4">🧬</span>
+                        <div>
+                            <h5 class="text-white font-bold">Этические Барьеры (2030)</h5>
+                            <p class="text-sm text-slate-400">Страх перед полным контролем алгоритмов над биологией.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-slate-800 pt-8 pb-12 text-center text-slate-500 text-sm">
+            <p>&copy; 2025 AI Research Institute. Generated for educational purposes.</p>
+            <p class="mt-2">Tech Stack: Tailwind CSS • Chart.js • Plotly.js (Canvas) • No SVG</p>
+        </footer>
+
+    </main>
+
+    <!-- SCRIPTS -->
+    <script>
+        // --- UTILS ---
+
+        // Helper to split long labels for Chart.js (Mandatory Requirement)
+        function formatLabel(str, maxwidth) {
+            if (!str) return [];
+            const sections = [];
+            const words = str.split(" ");
+            let temp = "";
+            words.forEach(function(item, index) {
+                if (temp.length > 0) {
+                    const concat = temp + ' ' + item;
+                    if (concat.length > maxwidth) {
+                        sections.push(temp);
+                        temp = "";
+                    } else {
+                        if (index === (words.length - 1)) {
+                            sections.push(concat);
+                            return;
+                        } else {
+                            temp = concat;
+                            return;
+                        }
+                    }
+                }
+                if (index === (words.length - 1)) {
+                    sections.push(item);
+                    return;
+                }
+                if (item.length < maxwidth) {
+                    temp = item;
+                } else {
+                    sections.push(item);
+                }
+            });
+            return sections;
+        }
+
+        // Common Chart Options
+        Chart.defaults.color = '#94a3b8';
+        Chart.defaults.font.family = 'Inter';
+        
+        const commonOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: { color: '#cbd5e1' } // Slate 300
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(15, 23, 42, 0.9)', // Slate 900
+                    titleColor: '#22d3ee', // Cyan 400
+                    bodyColor: '#f8fafc',
+                    borderColor: '#334155',
+                    borderWidth: 1,
+                    padding: 10,
+                    // MANDATORY TOOLTIP CALLBACK
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            } else {
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        // --- CHART 1: RADAR (2026 Features) ---
+        const ctxRadar = document.getElementById('radarChart2026').getContext('2d');
+        // Labels requiring wrapping
+        const rawRadarLabels = [
+            'Удобство Интерфейса и Скорость',
+            'Глубина Интеграции Данных',
+            'Защита Приватности и Шифрование',
+            'Автоматизация Рутины',
+            'Стоимость Подписки'
+        ];
+        const radarLabels = rawRadarLabels.map(l => formatLabel(l, 16));
+
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: radarLabels,
+                datasets: [{
+                    label: 'Текущие Приложения (2025)',
+                    data: [8, 4, 6, 3, 9],
+                    fill: true,
+                    backgroundColor: 'rgba(148, 163, 184, 0.2)', // Slate 400
+                    borderColor: '#94a3b8',
+                    pointBackgroundColor: '#94a3b8',
+                }, {
+                    label: 'LifeOS (2026)',
+                    data: [9, 10, 9, 8, 6],
+                    fill: true,
+                    backgroundColor: 'rgba(34, 211, 238, 0.2)', // Cyan 400
+                    borderColor: '#22d3ee',
+                    pointBackgroundColor: '#22d3ee',
+                    pointBorderColor: '#fff'
+                }]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    r: {
+                        angleLines: { color: '#334155' },
+                        grid: { color: '#334155' },
+                        pointLabels: { 
+                            color: '#e2e8f0',
+                            font: { size: 11 } 
+                        },
+                        ticks: { display: false, backdropColor: 'transparent' }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 2: BAR (2026 Categories) ---
+        const ctxBar = document.getElementById('barChart2026').getContext('2d');
+        const barLabels = ['Развлечения', 'Продуктивность AI', 'Образование', 'Здоровье/Фитнес', 'Дейтинг'].map(l => formatLabel(l, 16));
+        
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: barLabels,
+                datasets: [{
+                    label: 'Рост MAU (млн)',
+                    data: [120, 450, 200, 310, 90],
+                    backgroundColor: [
+                        '#475569', // Slate
+                        '#22d3ee', // Cyan (Hero)
+                        '#d946ef', // Fuchsia
+                        '#fbbf24', // Amber
+                        '#475569'
+                    ],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    y: {
+                        grid: { color: '#334155' },
+                        ticks: { color: '#94a3b8' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#e2e8f0' }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 3: LINE (2028 Efficiency) ---
+        const ctxLine = document.getElementById('lineChart2028').getContext('2d');
+        
+        new Chart(ctxLine, {
+            type: 'line',
+            data: {
+                labels: ['Q1 2027', 'Q3 2027', 'Q1 2028', 'Q3 2028', 'Q1 2029'],
+                datasets: [{
+                    label: 'Стоимость Подписки ($/мес)',
+                    data: [20, 35, 50, 65, 60],
+                    borderColor: '#fbbf24', // Amber
+                    backgroundColor: '#fbbf24',
+                    yAxisID: 'y',
+                    tension: 0.4
+                }, {
+                    label: 'Ценность Выполненной Работы ($/мес)',
+                    data: [50, 150, 400, 1200, 2500],
+                    borderColor: '#d946ef', // Fuchsia
+                    backgroundColor: '#d946ef',
+                    yAxisID: 'y1',
+                    tension: 0.4,
+                    fill: {
+                        target: 'origin',
+                        above: 'rgba(217, 70, 239, 0.1)'
+                    }
+                }]
+            },
+            options: {
+                ...commonOptions,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        grid: { color: '#334155' },
+                        title: { display: true, text: 'Стоимость ПО' }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        grid: { display: false },
+                        title: { display: true, text: 'Экономическая Ценность' }
+                    },
+                    x: {
+                        grid: { color: '#334155' }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 4: DONUT (2028 Segments) ---
+        const ctxDonut = document.getElementById('donutChart2028').getContext('2d');
+        const donutLabels = ['Фрилансеры/Креаторы', 'Малый Бизнес', 'Корпоративный Сектор', 'Частные Лица'].map(l => formatLabel(l, 16));
+
+        new Chart(ctxDonut, {
+            type: 'doughnut',
+            data: {
+                labels: donutLabels,
+                datasets: [{
+                    data: [40, 35, 15, 10],
+                    backgroundColor: [
+                        '#d946ef', // Fuchsia
+                        '#22d3ee', // Cyan
+                        '#fbbf24', // Amber
+                        '#475569'  // Slate
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                ...commonOptions,
+                cutout: '70%',
+                plugins: {
+                    ...commonOptions.plugins,
+                    legend: {
+                        position: 'bottom',
+                        labels: { padding: 20, usePointStyle: true, color: '#cbd5e1' }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 5: PLOTLY SCATTER (2030 Health) ---
+        // Using Canvas rendering mode
+        
+        const trace1 = {
+            x: [10, 25, 40, 60, 80, 95], // Data Depth (Integration %)
+            y: [3, 6, 12, 24, 48, 60],   // Retention (Months)
+            mode: 'markers',
+            type: 'scatter',
+            marker: {
+                size: [10, 20, 30, 40, 60, 80], // LTV Size
+                color: [
+                    '#475569', 
+                    '#475569', 
+                    '#22d3ee', 
+                    '#22d3ee', 
+                    '#d946ef', 
+                    '#fbbf24'
+                ],
+                opacity: 0.8,
+                line: { color: 'white', width: 1 }
+            },
+            text: [
+                'Basic Tracking', 
+                'Sleep + Steps', 
+                'Nutrition Integration', 
+                'Blood/Glucose Realtime', 
+                'Genomic Profile', 
+                'Neural Link'
+            ],
+            hoverinfo: 'text+x+y'
+        };
+
+        const layoutPlotly = {
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            margin: { t: 20, r: 20, b: 40, l: 40 },
+            showlegend: false,
+            xaxis: {
+                title: 'Глубина Интеграции Данных (%)',
+                color: '#94a3b8',
+                gridcolor: '#334155',
+                zerolinecolor: '#334155'
+            },
+            yaxis: {
+                title: 'Удержание (Месяцы)',
+                color: '#94a3b8',
+                gridcolor: '#334155',
+                zerolinecolor: '#334155'
+            },
+            font: {
+                family: 'Inter, sans-serif'
+            }
+        };
+
+        const configPlotly = {
+            responsive: true,
+            displayModeBar: false,
+            // FORCE CANVAS/WEBGL
+            renderer: 'canvas' 
+        };
+
+        Plotly.newPlot('plotlyScatter', [trace1], layoutPlotly, configPlotly);
+
+        // --- CHART 6: STACKED BAR (Churn) ---
+        const ctxChurn = document.getElementById('churnChart').getContext('2d');
+        const churnLabels = ['2026', '2028', '2030'];
+        
+        new Chart(ctxChurn, {
+            type: 'bar',
+            data: {
+                labels: churnLabels,
+                datasets: [
+                    {
+                        label: 'Стоимость',
+                        data: [60, 20, 10],
+                        backgroundColor: '#475569'
+                    },
+                    {
+                        label: 'Приватность/Доверие',
+                        data: [30, 50, 70],
+                        backgroundColor: '#ef4444' // Red for danger
+                    },
+                    {
+                        label: 'Сложность UX',
+                        data: [10, 30, 20],
+                        backgroundColor: '#fbbf24'
+                    }
+                ]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    x: {
+                        stacked: true,
+                        grid: { display: false },
+                        ticks: { color: '#e2e8f0' }
+                    },
+                    y: {
+                        stacked: true,
+                        grid: { color: '#334155' },
+                        ticks: { color: '#94a3b8' }
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
